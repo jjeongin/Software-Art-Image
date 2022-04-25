@@ -23,6 +23,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     // GUI
+    bool isDrawGUI;
     ofxPanel gui;
     ofParameter<float> volume;
     ofParameter<float> decay;

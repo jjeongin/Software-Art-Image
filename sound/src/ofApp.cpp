@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    isDrawGUI = false;
     ofBackground(0);
     ofSetFrameRate(20);
     
@@ -37,7 +38,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     float width = (float)(5*128) / nBandsToGet;
-    float threshold = 0.3;
+    float threshold = 0.4;
     
     // background
     int random = ofRandom(0,4);
@@ -46,7 +47,7 @@ void ofApp::draw(){
     else if (random == 1)
         ofSetColor(252, 186, 3, 100); //y
     else if (random == 2)
-        ofSetColor(5, 158, 0); //g
+        ofSetColor(5, 158, 0, 100); //g
     else
         ofSetColor(255, 255, 255);
     tiger.draw(0, 0, 0, ofGetWidth(), ofGetHeight());
@@ -86,12 +87,18 @@ void ofApp::draw(){
         }
     }
     
-    gui.draw();
+//    gui.draw();
+    if (isDrawGUI) {
+        gui.draw();
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if (key == 'g') {
+        // display gui
+        isDrawGUI = !isDrawGUI;
+    }
 }
 
 //--------------------------------------------------------------

@@ -38,7 +38,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     float width = (float)(5*128) / nBandsToGet;
-    float threshold = 0.4;
+    float threshold = 0.6;
     
     // background
     int random = ofRandom(0,4);
@@ -56,35 +56,34 @@ void ofApp::draw(){
 //    ofLog(OF_LOG_NOTICE, ofToString(ofGetWidth()) + ofToString(ofGetHeight())); // to check window size
     
     for (int i = 0; i < nBandsToGet; i++) {
-        if (fftSmoothed[i] < threshold) {
-//            danchung_texture.bind();
-            
-//            ofSetColor(255, 0, 212);
-//            box.setPosition(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()), ofRandom(0, 255));
-//            box.set(fftSmoothed[i] * 200, fftSmoothed[i] * 200, fftSmoothed[i] * 200);
-//            box.draw();
-            
-//            danchung_texture.unbind();
-        }
-        else {
-//            int random = ofRandom(0,3);
-//            if(random == 0)
-//                ofSetColor(255, 0, 0, 100);
-//            else if (random == 1)
-//                ofSetColor(252, 186, 3, 100);
-//            else
-//                ofSetColor(252, 186, 3, 100);
-            
-            ofSetColor(230, 230, 230);
-            danchung_texture.bind();
-            sphere.setPosition(ofGetWidth()/2, ofGetHeight()/2, 0);
-            sphere.setResolution(fftSmoothed[i]*100);
-            sphere.rotate(mouseX, 1.0, 0.0, 0.0);
-            sphere.rotate(mouseY, 0, 1.0, 0.0);
-            sphere.setRadius(fftSmoothed[i] * 300);
-            sphere.draw();
-            danchung_texture.unbind();
-        }
+//        if (fftSmoothed[i] < threshold) {
+////            danchung_texture.bind();
+//
+////            ofSetColor(255, 0, 212);
+////            box.setPosition(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()), ofRandom(0, 255));
+////            box.set(fftSmoothed[i] * 200, fftSmoothed[i] * 200, fftSmoothed[i] * 200);
+////            box.draw();
+//
+////            danchung_texture.unbind();
+//        }
+//        else {
+////            int random = ofRandom(0,3);
+////            if(random == 0)
+////                ofSetColor(255, 0, 0, 100);
+////            else if (random == 1)
+////                ofSetColor(252, 186, 3, 100);
+////            else
+////                ofSetColor(252, 186, 3, 100);
+//        }
+        ofSetColor(230, 230, 230);
+        danchung_texture.bind();
+        sphere.setPosition(ofGetWidth()/2, ofGetHeight()/2, 0);
+        sphere.setResolution(fftSmoothed[i]*50);
+        sphere.rotate(mouseX, 1.0, 0.0, 0.0);
+        sphere.rotate(mouseY, 0, 1.0, 0.0);
+        sphere.setRadius(fftSmoothed[i] * 300);
+        sphere.draw();
+        danchung_texture.unbind();
     }
     
 //    gui.draw();
